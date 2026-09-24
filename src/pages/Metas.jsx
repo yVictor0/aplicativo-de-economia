@@ -1,11 +1,11 @@
 import ListadDeItem from "../components/MetaPages/listadDeItem/listadDeItem.jsx";
-import MetaDoMes from "../components/MetaPages/MetaDoMes/MetaDoMes.jsx";
+import MetaEValor from "../components/MetaPages/MetaEValor/MetaEValor.jsx";
 
 
 function Metas(){
     return(
         <div>
-            <MetaDoMes/>
+            <MetaEValor/>
             <div className="header">
                 <h1 className="titulo">Últimos Saldos</h1> 
                 <a href="aa" className="vertudo">Ver Tudo {'>'}</a>
