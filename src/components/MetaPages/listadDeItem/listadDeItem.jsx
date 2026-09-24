@@ -21,7 +21,7 @@ function ListadDeItem() {
         <p>Registre um Novo Saldo</p>
       </div>
 
-      <div className={styles['lista-container']}>
+      <div onClick={Click} className={styles['lista-container']}>
         <ul className={styles['lista-gastos']}>
           {gastos.map((item) => (
             <ItemLista
