@@ -8,10 +8,14 @@ function ListadDeItem() {
     { id: 3, icone: "🚋", texto: "Passagem", preco: 80, tipo: "Transporte", data: "hoje, 08:15" },
   ];
 
+    const Click = () =>{
+        alert("vc clicou")
+    }
+
   return (
     <div>
-      {/* 2. Usa a variável 'styles' nas classNames */}
-      <div className={styles.adicionandoItem}>
+      <div onClick={Click}
+      className={styles.adicionandoItem}>
         <div className={styles.IconAdd}>+</div>
         <h1>Adicionar Novo Item</h1>
         <p>Registre um Novo Saldo</p>
