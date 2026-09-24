@@ -1,0 +1,58 @@
+.Header {
+  width: 100%;
+  padding: calc(40px + env(safe-area-inset-top, 0px)) 20px 20px 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  position: relative;
+  z-index: 10;
+}
+
+.textGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.Header h1 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.Header h1 strong {
+  font-weight: 700;
+  color: #000000;
+}
+
+.Header p {
+  font-size: 15px;
+  color: #8c8c8c;
+  margin: 0;
+  font-weight: 400;
+}
+
+.bntNotificaçao {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #e5e5e5;
+  border: none;
+  cursor: pointer;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  position: relative;
+  
+  transition: background-color 0.2s ease;
+}
+
+.bntNotificaçao:hover {
+  background-color: #d8d8d8;
+}

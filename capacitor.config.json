@@ -1,0 +1,12 @@
+{
+  "appId": "com.yan.appeconomia",
+  "appName": "App Economia",
+  "webDir": "dist",
+  "server": {
+    "url": "https://app-economia.vercel.app",
+    "cleartext": true,
+    "allowNavigation": [
+      "app-economia.vercel.app"
+    ]
+  }
+}

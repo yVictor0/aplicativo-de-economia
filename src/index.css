@@ -1,0 +1,9 @@
+@media (max-width: 600px) {
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    background-color: rgb(189, 24, 24);
+  }
+}
+

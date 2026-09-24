@@ -1,0 +1,38 @@
+/* Aplica o fundo cinza na página inteira e remove margens padrão */
+body {
+  background-color: #cfd1d1;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Alinha o título "Último Saldos" e o "Ver Tudo >" lado a lado */
+.header {
+  display: flex;
+  justify-content: space-between; /* Empurra o título para a esquerda e o botão para a direita */
+  align-items: center;             /* Centraliza ambos verticalmente */
+  padding: 16px 20px 8px;          /* Espaçamento interno em volta do cabeçalho */
+}
+
+/* Estilo do título */
+.titulo {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;                      /* Remove a margem padrão do h1 para não desalinhá-lo */
+}
+
+/* Estilo do botão Ver Tudo */
+.vertudo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #5c6b8a; /* Tom azul-acinzentado exato da imagem */
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.vertudo:hover {
+  opacity: 0.75;
+}

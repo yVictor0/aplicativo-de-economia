@@ -1,0 +1,11 @@
+.lista-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 60px 16px 90px 16px; 
+  box-sizing: border-box;
+
+  height: 100vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
