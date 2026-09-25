@@ -1,10 +1,8 @@
 /* Fundo escuro fixo a cobrir a tela inteira */
 .overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0; /* Substitui top:0, left:0, width:100vw, height:100vh evitando barras horizontais */
+  min-height: 100dvh; /* dvh se adapta perfeitamente à barra de navegação do celular */
   background-color: rgba(15, 23, 42, 0.4);
   backdrop-filter: blur(4px);
   display: flex;
@@ -12,6 +10,7 @@
   justify-content: center;
   z-index: 1000;
   padding: 16px;
+  box-sizing: border-box;
 }
 
 /* Card central do modal */
@@ -21,6 +20,11 @@
   border-radius: 28px;
   width: 100%;
   max-width: 440px;
+  
+  /* Impede que o modal fique maior que a tela do celular */
+  max-height: calc(100dvh - 32px); 
+  overflow-y: auto; /* Adiciona scroll interno se a tela do celular for muito curta */
+  
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
@@ -37,6 +41,13 @@
   text-align: left;
 }
 
+/* Remove setinhas do input number no Chrome, Edge, Safari e Opera */
+.container input::-webkit-outer-spin-button,
+.container input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 /* Campo de entrada de texto/valor */
 .container input {
   -moz-appearance: textfield;
@@ -46,7 +57,7 @@
   border: 1px solid #e2e8f0;
   border-radius: 16px;
   background-color: #f8fafc;
-  font-size: 18px;
+  font-size: 16px; /* Mínimo 16px impede o zoom automático do Safari no iOS */
   font-weight: 700;
   color: #0f172a;
   outline: none;
@@ -71,7 +82,7 @@
 .btnEntrada,
 .btnRetirada {
   flex: 1;
-  padding: 12px;
+  padding: 12px 8px;
   border-radius: 12px;
   border: 1px solid #e2e8f0;
   background-color: #f8fafc;
@@ -91,7 +102,7 @@
 /* Botão Fechar / Cancelar (Secundário com contorno) */
 .btnFechar {
   flex: 1;
-  padding: 14px;
+  padding: 14px 8px;
   border: 1.5px solid #10b981;
   border-radius: 14px;
   background-color: #ffffff;
@@ -109,7 +120,7 @@
 /* Botão Confirmar / Salvar (Primário preenchido) */
 .btnConfirmar {
   flex: 1;
-  padding: 14px;
+  padding: 14px 8px;
   border: none;
   border-radius: 14px;
   background-color: #059669;
@@ -123,4 +134,17 @@
 
 .btnConfirmar:hover {
   background-color: #047857;
+}
+
+/* Media Query para telas muito estreitas (ex: iPhone SE ou Androids antigos) */
+@media (max-width: 360px) {
+  .container {
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .buttonGroup {
+    flex-direction: column; /* Empilha os botões se a tela for pequena demais para ficarem lado a lado */
+    gap: 8px;
+  }
 }
