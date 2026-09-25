@@ -15,15 +15,17 @@ function ListadDeItem() {
 
   return (
     <div>
-      {/* Div que abre o Modal ao ser clicada */}
-      <div 
-        onClick={() => setModalAberto(true)}
-        className={styles.adicionandoItem}
+     <button 
+          type="button"
+          onClick={() => setModalAberto(true)}
+          className={styles.adicionandoItem}
       >
-        <div className={styles.IconAdd}>+</div>
-        <h1>Adicionar Novo Item</h1>
+      <div className={styles.IconAdd}>+</div>
+      <div>
+        <h2>Adicionar Novo Item</h2>
         <p>Registre um Novo Saldo</p>
-      </div>
+    </div>
+</button>
 
       {/* Exibe o Modal se modalAberto for true */}
       {modalAberto && (
