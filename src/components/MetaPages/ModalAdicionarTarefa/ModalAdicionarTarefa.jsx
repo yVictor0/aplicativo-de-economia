@@ -9,13 +9,13 @@ function ModalAdicionarTarefa({ onClose }) {
   return (
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.container} onClick={(e) => e.stopPropagation()}>
-        <p>Teste</p>
+        <p>Novo Item</p>
 
         <button onClick={handleConfirmar}>
-          Confirmar
+          Salvar
         </button>
         <button onClick={onClose}>
-          Fechar
+          Excluir
         </button>
       </div>
     </div>
