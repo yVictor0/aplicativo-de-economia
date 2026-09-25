@@ -22,8 +22,8 @@ function ListadDeItem() {
       >
       <div className={styles.IconAdd}>+</div>
       <div>
-        <h2>Adicionar Novo Item</h2>
-        <p>Registre um Novo Saldo</p>
+        <span>Adicionar Novo Item</span>
+        <span>Registre um Novo Saldo</span>
     </div>
 </button>
 
