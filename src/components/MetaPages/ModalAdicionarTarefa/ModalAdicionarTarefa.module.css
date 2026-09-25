@@ -5,52 +5,122 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(2px);
+  background-color: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  padding: 16px;
 }
 
 /* Card central do modal */
 .container {
   background-color: #ffffff;
   padding: 24px;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 360px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  text-align: center;
+  border-radius: 28px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-.container h2 {
-  margin-top: 0;
-  margin-bottom: 8px;
-  color: #111827;
-}
-
+/* Texto descritivo */
 .container p {
-  color: #6b7280;
-  margin-bottom: 20px;
+  color: #64748b;
+  font-size: 14px;
+  margin: 0;
+  text-align: left;
 }
 
-/* Botões do modal */
-.container button {
-  padding: 10px 16px;
-  margin: 0 4px;
-  border: none;
-  border-radius: 8px;
+/* Campo de entrada de texto/valor */
+.container input {
+  -moz-appearance: textfield;
+  appearance: textfield;
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  background-color: #f8fafc;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.container input:focus {
+  border-color: #10b981;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+/* Contentor flex para agrupar botões lado a lado */
+.buttonGroup {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+/* Botões de Seleção (Entrada / Retirada) */
+.btnEntrada,
+.btnRetirada {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+  color: #475569;
   font-weight: 600;
+  font-size: 14px;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.container button:first-of-type {
-  background-color: #10b981;
+.btnEntrada:hover,
+.btnRetirada:hover {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+/* Botão Fechar / Cancelar (Secundário com contorno) */
+.btnFechar {
+  flex: 1;
+  padding: 14px;
+  border: 1.5px solid #10b981;
+  border-radius: 14px;
+  background-color: #ffffff;
+  color: #059669;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btnFechar:hover {
+  background-color: #f0fdf4;
+}
+
+/* Botão Confirmar / Salvar (Primário preenchido) */
+.btnConfirmar {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  border-radius: 14px;
+  background-color: #059669;
   color: #ffffff;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(5, 150, 105, 0.2);
 }
 
-.container button:last-of-type {
-  background-color: #e5e7eb;
-  color: #374151;
+.btnConfirmar:hover {
+  background-color: #047857;
 }
