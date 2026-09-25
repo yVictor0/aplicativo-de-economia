@@ -4,7 +4,6 @@ import ModalAdicionarTarefa from '../ModalAdicionarTarefa/ModalAdicionarTarefa';
 import styles from './lista.module.css';
 
 function ListadDeItem() {
-  // Ajustado o nome da variável para padrão camelCase (modalAberto)
   const [modalAberto, setModalAberto] = useState(false);
 
   const gastos = [
@@ -14,25 +13,23 @@ function ListadDeItem() {
   ];
 
   return (
-    <div>
+    <section>
      <button 
           type="button"
           onClick={() => setModalAberto(true)}
           className={styles.adicionandoItem}
       >
       <div className={styles.IconAdd}>+</div>
-      <div>
-        <h1>Adicionar Novo Item</h1>
-        <p>Registre um Novo Saldo</p>
-    </div>
-</button>
+        <div>
+          <h1>Adicionar Novo Item</h1>
+          <p>Registre um Novo Saldo</p>
+        </div>
+    </button>
 
-      {/* Exibe o Modal se modalAberto for true */}
       {modalAberto && (
         <ModalAdicionarTarefa onClose={() => setModalAberto(false)} />
       )}
 
-      {/* Lista de Itens */}
       <div className={styles['lista-container']}>
         <ul className={styles['lista-gastos']}>
           {gastos.map((item) => (
@@ -47,7 +44,7 @@ function ListadDeItem() {
           ))}
         </ul>
       </div>
-    </div>
+    </section>
   );
 }
 
