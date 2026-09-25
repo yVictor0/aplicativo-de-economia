@@ -117,3 +117,27 @@
   transform: translateY(0) scale(0.97);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
+
+/* Fundo escuro cobrindo a tela inteira */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro transparente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Garante que fica por cima de tudo */
+}
+
+/* Container do modal centralizado */
+.content {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
