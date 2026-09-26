@@ -1,40 +1,49 @@
+/* ==========================================================================
+   LISTA E ITENS (RESPONSIVO PARA QUALQUER TELA)
+   ========================================================================== */
+
 ul {
-  padding: 0 16px;
+  padding: 0; /* Zerado para não acumular com o padding do container pai */
   margin: 0;
   display: flex;
   flex-direction: column;
   list-style: none;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .itemLista {
   display: flex;
   align-items: center;
   background-color: #ffffff;
-  padding: 16px 18px;
+  padding: 14px 16px;
   border-radius: 22px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.025);
   margin-bottom: 12px;
   box-sizing: border-box;
+  width: 100%;
   user-select: none;
+  -webkit-user-select: none;
   -webkit-tap-highlight-color: transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.itemLista *,
-.itemLista *::selection {
-  background: transparent !important;
-  background-color: transparent !important;
+/* Feedback de toque tátil no celular */
+.itemLista:active {
+  transform: scale(0.98);
 }
 
+/* Ícone com gradiente (removida a necessidade de !important) */
 .iconFundo {
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border-radius: 18px;
-  background: linear-gradient(135deg, #4f86f7 0%, #2563eb 100%) !important; /* Mantém a cor azul */
+  background: linear-gradient(135deg, #4f86f7 0%, #2563eb 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 14px;
-  flex-shrink: 0;
+  margin-right: 12px;
+  flex-shrink: 0; /* IMPRESCINDÍVEL: O ícone nunca achata em telas pequenas */
 }
 
 .iconEmoji {
@@ -45,11 +54,14 @@ ul {
   justify-content: center;
 }
 
+/* Coluna da Esquerda (Nome do Item e Categoria) */
 .esquerda {
   display: flex;
   flex-direction: column;
   gap: 3px;
-  flex-grow: 1;
+  flex: 1;
+  min-width: 0; /* IMPRESCINDÍVEL: Permite que textos longos usem '...' em vez de empurrar a tela */
+  margin-right: 8px;
 }
 
 .esquerda .texto:first-child {
@@ -57,6 +69,9 @@ ul {
   font-weight: 600;
   color: #1e293b;
   line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adiciona '...' se o nome do item for muito longo */
 }
 
 .esquerda .texto:last-child {
@@ -64,14 +79,19 @@ ul {
   font-weight: 400;
   color: #94a3b8;
   line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+/* Coluna da Direita (Preço e Data) */
 .direita {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 3px;
-  margin-right: 12px;
+  margin-right: 8px;
+  flex-shrink: 0; /* IMPRESCINDÍVEL: O preço e data NUNCA esmagam */
 }
 
 .preco {
@@ -79,6 +99,7 @@ ul {
   font-weight: 700;
   color: #10b981;
   line-height: 1.2;
+  white-space: nowrap;
 }
 
 .direita .texto {
@@ -86,12 +107,15 @@ ul {
   font-weight: 400;
   color: #94a3b8;
   line-height: 1.2;
+  white-space: nowrap;
 }
 
+/* Seta indicativa na lateral direita */
 .itemLista::after {
   content: '›';
-  font-size: 20px;
+  font-size: 22px;
   color: #94a3b8;
   font-weight: 400;
   line-height: 1;
+  flex-shrink: 0;
 }
