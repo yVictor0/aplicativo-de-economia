@@ -1,9 +1,53 @@
-@media (max-width: 600px) {
-* {
-  font-family: Arial, Helvetica, sans-serif;
+/* ==========================================================================
+   MEDIAS QUERIES E AJUSTES PARA CELULARES PEQUENOS
+   ========================================================================== */
+
+/* Previne que navegadores mobile (especialmente iOS Safari) alterem 
+   o tamanho dos textos automaticamente ao girar a tela */
+html {
+  -webkit-text-size-adjust: 100%;
 }
-body {
-    background-color: rgb(189, 24, 24);
+
+/* Ajustes automáticos para telas com largura abaixo de 600px */
+@media (max-width: 600px) {
+  /* Garante que o body mantenha o fundo neutro sem sobreposições */
+  body {
+    background-color: #cfd1d1;
   }
 }
 
+/* Ajustes finos específicos para celulares bem pequenos (menores que 380px) */
+@media (max-width: 380px) {
+  .Header h1 {
+    font-size: 20px;
+  }
+
+  .titulo {
+    font-size: 16px;
+  }
+
+  .vertudo {
+    font-size: 14px;
+  }
+
+  .adicionandoItem {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  .IconAdd {
+    width: 42px;
+    height: 42px;
+    font-size: 22px;
+  }
+
+  .iconFundo {
+    width: 42px;
+    height: 42px;
+  }
+
+  .esquerda .texto:first-child,
+  .preco {
+    font-size: 14px;
+  }
+}

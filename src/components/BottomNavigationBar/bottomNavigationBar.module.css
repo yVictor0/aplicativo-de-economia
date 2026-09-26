@@ -3,9 +3,10 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 80px;
+  min-height: 70px; /* Substitui a altura fixa para evitar cortes com o safe-area */
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
@@ -13,7 +14,10 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding-bottom: env(safe-area-inset-bottom);
+  /* Combina padding superior com o safe-area inferior de forma dinâmica */
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom)) 16px;
+  box-sizing: border-box;
+  z-index: 999;
 }
 
 .NavBottom button {
@@ -22,14 +26,22 @@
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 0;
+  padding: 10px; /* Alarga a área de toque para os dedos no telemóvel */
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 50%;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.NavBottom button:active {
+  transform: scale(0.88); /* Feedback tátil imediato ao tocar no botão */
 }
 
 .NavBottom button img {
   width: 24px;
   height: 24px;
   background: transparent;
+  object-fit: contain;
 }

@@ -1,10 +1,15 @@
+/* ==========================================================================
+   HEADER (RESPONSIVO E COMPATÍVEL COM NOTCH / SAFE AREA)
+   ========================================================================== */
+
 .Header {
   width: 100%;
-  padding: calc(40px + env(safe-area-inset-top, 0px)) 20px 20px 20px;
+  /* Padding superior ajustado dinamicamente para notches do iOS/Android */
+  padding: calc(20px + env(safe-area-inset-top, 0px)) 20px 16px 20px;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center; /* Centraliza o texto verticalmente com o botão */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   position: relative;
   z-index: 10;
@@ -13,15 +18,21 @@
 .textGroup {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
+  flex: 1;
+  min-width: 0; /* IMPRESCINDÍVEL: Evita que nomes longos empurrem o botão para fora da tela */
+  margin-right: 16px;
 }
 
 .Header h1 {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 500;
   color: #1a1a1a;
   margin: 0;
   line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adiciona '...' se o nome do usuário for muito longo */
 }
 
 .Header h1 strong {
@@ -30,10 +41,13 @@
 }
 
 .Header p {
-  font-size: 15px;
+  font-size: 14px;
   color: #8c8c8c;
   margin: 0;
   font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .bntNotificaçao {
@@ -42,7 +56,9 @@
   border-radius: 50%;
   background-color: #e5e5e5;
   border: none;
+  outline: none;
   cursor: pointer;
+  flex-shrink: 0; /* IMPRESCINDÍVEL: O botão de notificação nunca esmaga */
   
   display: flex;
   align-items: center;
@@ -50,9 +66,19 @@
   padding: 0;
   position: relative;
   
-  transition: background-color 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.bntNotificaçao:hover {
+/* Feedback tátil imediato ao tocar no celular */
+.bntNotificaçao:active {
+  transform: scale(0.92);
   background-color: #d8d8d8;
+}
+
+/* Hover mantido exclusivo para navegação com mouse */
+@media (hover: hover) {
+  .bntNotificaçao:hover {
+    background-color: #d8d8d8;
+  }
 }

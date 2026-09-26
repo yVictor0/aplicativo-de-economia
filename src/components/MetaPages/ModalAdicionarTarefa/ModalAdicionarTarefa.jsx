@@ -50,7 +50,7 @@ function ModalAdicionarTarefa({ onClose, valorMaximo = 100000000000, onGuardar }
       icone: icone.trim() || (tipo === 'Entrada' ? '💰' : '💸'),
       texto: nomeDoItem,
       preco: valor,
-      tipo: tipo,
+      tipo: tipo || 'Entrada',
       data: horaAtual,
     };
 
