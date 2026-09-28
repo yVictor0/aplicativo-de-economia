@@ -1,6 +1,31 @@
+import { useState } from 'react';
+
 import styles from "./MetaEValor.module.css";
 
-function MetaDoMes({ atual = 1400, maximo = 2000 }) {
+
+function MetaDoMes({ maximo = 2000 }) {
+  const [atual, setatual] = useState(5)
+  const [tempAtual, setTempAtual] = useState(5)
+  const [alterando, setAlterando] = useState(false)
+
+
+  const nvValor = () => {
+    setatual(tempAtual)
+    setAlterando(false)
+  }
+
+  if (alterando) {
+    return (<input
+     type='number'
+     value={tempAtual} 
+     onChange={(e) => setTempAtual(e.target.value)}
+     onBlur={nvValor}
+     onKeyDown={(e) => e.key === 'Enter' && nvValor()}
+     autoFocus
+     />
+    )
+  }
+
   const porcentagem =
     maximo > 0 ? Math.min(Math.max((atual / maximo) * 100, 0), 100) : 0;
 
@@ -8,7 +33,8 @@ function MetaDoMes({ atual = 1400, maximo = 2000 }) {
     <div className={styles.containerMetaEvalor}>
       <div>
         <h1>Saldo Atual</h1>
-        <div className={styles.saldoAtual}>R${atual}</div>
+        <div className={styles.saldoAtual}  onClick={() => setAlterando} >R$ <span contentEditable
+      suppressContentEditableWarning> {atual} </span></div>
         <p className={styles.subTitulo}>+{porcentagem}% da meta atigida </p>
       </div>
 

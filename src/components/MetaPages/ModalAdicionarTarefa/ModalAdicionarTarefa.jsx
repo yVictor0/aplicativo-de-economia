@@ -54,9 +54,9 @@ function ModalAdicionarTarefa({ onClose, valorMaximo = 100000000000, onGuardar }
       data: horaAtual,
     };
 
-    if (onGuardar) {
-      onGuardar(novoItem);
-    }
+
+    onGuardar(novoItem);
+    
 
     setNomeDoItem('');
     setValor('0,00');
