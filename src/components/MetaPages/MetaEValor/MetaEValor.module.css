@@ -53,7 +53,7 @@
   opacity: 0.7;
 }
 
-/* Valor do Saldo */
+/* Valor do Saldo Container (com o "R$" e o Input alinhados) */
 .saldoAtual {
   font-size: clamp(26px, 4vw, 32px);
   font-weight: 800;
@@ -61,6 +61,38 @@
   letter-spacing: -0.5px;
   line-height: 1.1;
   margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px; /* Espaço entre 'R$' e o número */
+}
+
+/* Estilização do Input invisível com aparência de H1 */
+.saldoAtual input {
+  font-size: inherit;        /* Herda os 26px - 32px do .saldoAtual */
+  font-weight: inherit;     /* Herda o peso 800 */
+  color: inherit;           /* Herda a cor #0f172a */
+  letter-spacing: inherit;  /* Herda o espaçamento de letras */
+  font-family: inherit;     /* Herda a fonte da página */
+  
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 200px;         /* Ajuste conforme o espaço desejado */
+}
+
+/* Remove setas padrão de numeração no Chrome, Safari, Edge, Opera */
+.saldoAtual input::-webkit-outer-spin-button,
+.saldoAtual input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove setas no Firefox */
+.saldoAtual input[type=number] {
+  -moz-appearance: textfield;
 }
 
 /* Subtítulo (+porcentagem% da meta atingida) */
