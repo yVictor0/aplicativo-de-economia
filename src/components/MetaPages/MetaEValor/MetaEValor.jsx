@@ -34,7 +34,7 @@ function MetaDoMes({ maximo = 2000 }) {
       <div>
         <h1>Saldo Atual</h1>
         <div className={styles.saldoAtual}  onClick={() => setAlterando} >R$ <span contentEditable
-      suppressContentEditableWarning> {atual} </span></div>
+      suppressContentEditableWarning> {setTempAtual} </span></div>
         <p className={styles.subTitulo}>+{porcentagem}% da meta atigida </p>
       </div>
 
