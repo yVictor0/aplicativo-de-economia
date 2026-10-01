@@ -42,6 +42,12 @@ function ModalAdicionarTarefa({ onClose, valorMaximo = 100000000000, onGuardar }
       return;
     }
 
+   
+
+    // const alterandoSinal = () => {
+    //   setTipo((prev) => (prev.startsWith('-') ? prev.slice(1) : '-' + prev))
+    // }
+
     const agora = new Date();
     const horaAtual = `hoje, ${agora.getHours().toString().padStart(2, '0')}:${agora.getMinutes().toString().padStart(2, '0')}`;
 
@@ -62,6 +68,17 @@ function ModalAdicionarTarefa({ onClose, valorMaximo = 100000000000, onGuardar }
     setValor('0,00');
     onClose();
   };
+
+  
+   
+   
+    const tipoPositivo =() => {
+      setValor((prev) => (prev.startsWith('-') ? prev.slice(1) :  prev))
+    }
+
+    const tipoNegativo =() => {
+      setValor((prev) => (prev.startsWith('-') ? prev : '-' + prev))
+    }
 
   return (
     <div className={styles.overlay} onClick={onClose}>
@@ -91,14 +108,14 @@ function ModalAdicionarTarefa({ onClose, valorMaximo = 100000000000, onGuardar }
             <button 
               type="button" 
               className={`${styles.btnEntrada} ${tipo === 'Entrada' ? styles.ativo : ''}`}
-              onClick={() => setTipo('Entrada')}
+              onClick={tipoPositivo}
             >
               Entrada
             </button>
             <button 
               type="button" 
               className={`${styles.btnRetirada} ${tipo === 'Retirada' ? styles.ativo : ''}`}
-              onClick={() => setTipo('Retirada')}
+              onClick={tipoNegativo }
             >
               Retirada
             </button>
