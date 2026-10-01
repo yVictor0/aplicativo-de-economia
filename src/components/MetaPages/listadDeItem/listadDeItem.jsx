@@ -6,11 +6,7 @@ import styles from './lista.module.css';
 function ListadDeItem() {
   const [modalAberto, setModalAberto] = useState(false);
 
-  const [gastos, setGastos] = useState([
-    { id: 1, icone: "😁", texto: "Aparelho", preco: -70, tipo: "Retirada", data: "hoje, 17:20" },
-    { id: 2, icone: "🥊", texto: "Muay Thai", preco: -70, tipo: "Retirada", data: "hoje, 14:32" },
-    { id: 3, icone: "🚋", texto: "Passagem", preco: -80, tipo: "Retirada", data: "hoje, 08:15" },
-  ]);
+  const [gastos, setGastos] = useState([]);
 
   const handleGuardarItem = (novoGasto) => {
     setGastos((prevGastos) => [novoGasto, ...prevGastos]);
