@@ -250,3 +250,58 @@
   );
   transition: background 0.3s ease;
 }
+
+/* ==========================================================================
+   ESTILIZAÇÃO DOS INPUTS PARA FICAREM COMO H1 / TEXTO
+   ========================================================================== */
+
+/* 1. Input do Saldo Atual */
+.saldoAtual input,
+.saldo {
+  font-size: inherit;        /* Herda o tamanho (26px - 32px) do .saldoAtual */
+  font-weight: inherit;     /* Herda o peso 800 */
+  color: inherit;           /* Herda a cor #0f172a */
+  letter-spacing: inherit;  /* Herda o espaçamento de letras */
+  font-family: inherit;     /* Herda a mesma fonte */
+  line-height: inherit;
+  
+  background: transparent;  /* Tira o fundo branco */
+  border: none;             /* Tira as bordas */
+  outline: none;            /* Tira a borda azul ao clicar */
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+/* 2. Input da Meta do Mês */
+.inputPorcentagem {
+  grid-column: 2;
+  grid-row: 2;
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 700;
+  color: #1e293b;
+  letter-spacing: -0.3px;
+  line-height: 1.2;
+  font-family: inherit;
+
+  background: transparent;  /* Tira o fundo branco */
+  border: none;             /* Tira as bordas */
+  outline: none;            /* Tira a borda azul ao clicar */
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+/* 3. Remove setas padrão de número nos navegadores */
+.saldo::-webkit-outer-spin-button,
+.saldo::-webkit-inner-spin-button,
+.inputPorcentagem::-webkit-outer-spin-button,
+.inputPorcentagem::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.saldo[type=number],
+.inputPorcentagem[type=number] {
+  -moz-appearance: textfield;
+}
